@@ -1,0 +1,84 @@
+{
+  "automation": {
+    "booking_url": "https://wafid.com/book-appointment",
+    "max_retries": 100,
+    "page_timeout": 30,
+    "form_fill_delay": 0.5,
+    "retry_delay_min": 1,
+    "retry_delay_max": 3
+  },
+  "browser": {
+    "headless": false,
+    "window_size": "1920,1080",
+    "user_data_dir_prefix": "wafid_automation_",
+    "page_load_timeout": 30,
+    "implicit_wait": 10
+  },
+  "proxy": {
+    "min_working_proxies": 10,
+    "test_timeout": 10,
+    "max_concurrent_tests": 50,
+    "refresh_interval": 3600,
+    "sources": [
+      "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt",
+      "https://raw.githubusercontent.com/clarketm/proxy-list/master/proxy-list-raw.txt",
+      "https://raw.githubusercontent.com/sunny9577/proxy-scraper/master/proxies.txt",
+      "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/http.txt",
+      "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/http.txt"
+    ]
+  },
+  "logging": {
+    "level": "INFO",
+    "file_max_size": "10MB",
+    "backup_count": 5,
+    "console_format": "[%(asctime)s] %(levelname)s: %(message)s",
+    "file_format": "[%(asctime)s] %(name)s - %(levelname)s - %(message)s"
+  },
+  "gui": {
+    "window_size": "1000x700",
+    "min_size": "800x600",
+    "auto_scroll_console": true,
+    "status_update_interval": 5000,
+    "theme": "clam"
+  },
+  "field_mappings": {
+    "appointment": {
+      "country": ["country", "nation", "citizenship"],
+      "city": ["city", "town", "location"],
+      "country_traveling_to": ["traveling", "destination", "travel_to"]
+    },
+    "candidate": {
+      "first_name": ["firstname", "first_name", "fname", "given_name"],
+      "last_name": ["lastname", "last_name", "lname", "surname", "family_name"],
+      "date_of_birth": ["birth", "dob", "born", "birthday"],
+      "nationality": ["nationality", "citizen"],
+      "gender": ["gender", "sex"],
+      "marital_status": ["marital", "marriage", "married"],
+      "passport_number": ["passport", "passport_num", "passport_no"],
+      "passport_issue_date": ["passport.*issue", "issue.*date"],
+      "passport_issue_place": ["passport.*place", "issue.*place"],
+      "passport_expiry": ["passport.*expir", "expir.*date"],
+      "visa_type": ["visa", "visa_type"],
+      "email": ["email", "mail"],
+      "phone": ["phone", "mobile", "tel"],
+      "national_id": ["national.*id", "id.*number", "civil.*id"],
+      "position": ["position", "job", "occupation", "profession"]
+    }
+  },
+  "medical_center_extraction": {
+    "possible_fields": [
+      "assignedMedicalCenter",
+      "medical_center",
+      "medicalCenter",
+      "clinic_name",
+      "center_name",
+      "hospital_name",
+      "assigned_center",
+      "appointment_center",
+      "clinic",
+      "center",
+      "hospital"
+    ],
+    "fuzzy_match_threshold": 0.8
+  }
+}
